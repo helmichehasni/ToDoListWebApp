@@ -1,0 +1,36 @@
+﻿@page
+@model ToDoListWebApp.Pages.ListModel
+
+<a href="/new">Add new task</a>
+
+<h1>ToDo List</h1>
+
+@if (Model.ToDos == null)
+{
+	<p>No Task Available</p>
+}
+else
+{
+	<table>
+
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Task</th>
+				<th>Date Added</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var todo in Model.ToDos)
+			{
+				<tr>
+					<td>@todo.Id</td>
+					<td>@todo.Task</td>
+					<td>@todo.DateAdded</td>
+					<td>@todo.status</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
